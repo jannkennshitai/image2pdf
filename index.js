@@ -29,7 +29,6 @@ const eOutput = document.getElementById("output");
 
 eInput.addEventListener("click", onInputButtonClick, false);
 eOutput.setAttribute("download", "a.pdf");
-eOutput.style.display = "none";
 
 function onInputButtonClick(e){
 	const eInputFile = document.createElement("input");
@@ -68,5 +67,4 @@ async function onInputFileChange(e){
 
 	eOutput.setAttribute("href", URL.createObjectURL(blob));
 	eOutput.textContent = "a.pdf";
-	eOutput.style.display = "inline";
 }
