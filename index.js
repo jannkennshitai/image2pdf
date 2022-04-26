@@ -28,7 +28,7 @@ const eInput = document.getElementById("input");
 const eOutput = document.getElementById("output");
 
 eInput.addEventListener("click", onInputButtonClick, false);
-eOutput.setAttribute("download", "a.pdf");
+//eOutput.setAttribute("download", "a.pdf");
 
 async function onInputFileChange(e){
 	eOutput.textContent = "読込中";
@@ -67,6 +67,7 @@ function onInputButtonClick(e){
 	eInputFile.setAttribute("type", "file");
 	eInputFile.setAttribute("accept", "image/jpeg,image/png");
 	eInputFile.setAttribute("multiple", "");
-	eInputFile.addEventListener("change", onInputFileChange, false);
+	//eInputFile.addEventListener("change", onInputFileChange, false);
+	eInputFile.addEventListener("change", e => onInputFileChange(e).then(result => {}), false);
 	eInputFile.click();
 }
