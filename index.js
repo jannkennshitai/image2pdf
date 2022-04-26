@@ -30,16 +30,9 @@ const eOutput = document.getElementById("output");
 eInput.addEventListener("click", onInputButtonClick, false);
 eOutput.setAttribute("download", "a.pdf");
 
-function onInputButtonClick(e){
-	const eInputFile = document.createElement("input");
-	eInputFile.setAttribute("type", "file");
-	eInputFile.setAttribute("accept", "image/jpeg,image/png");
-	eInputFile.setAttribute("multiple", "");
-	eInputFile.addEventListener("change", onInputFileChange, false);
-	eInputFile.click();
-}
-
 async function onInputFileChange(e){
+	eOutput.textContent = "読込中";
+
 	const files = e.target.files;
 
 	if(eOutput.href) URL.revokeObjectURL(eOutput.href);
@@ -67,4 +60,13 @@ async function onInputFileChange(e){
 
 	eOutput.setAttribute("href", URL.createObjectURL(blob));
 	eOutput.textContent = "a.pdf";
+}
+
+function onInputButtonClick(e){
+	const eInputFile = document.createElement("input");
+	eInputFile.setAttribute("type", "file");
+	eInputFile.setAttribute("accept", "image/jpeg,image/png");
+	eInputFile.setAttribute("multiple", "");
+	eInputFile.addEventListener("change", onInputFileChange, false);
+	eInputFile.click();
 }
