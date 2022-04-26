@@ -34,7 +34,7 @@ for(let key of Object.keys(self)){
 }
 
 eInput.addEventListener("click", onInputButtonClick, false);
-//eOutput.setAttribute("download", "a.pdf");
+eOutput.setAttribute("download", "document.pdf");
 
 async function onInputFileChange(e){
 	eOutput.textContent = "読込中";
